@@ -83,13 +83,11 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:Chat",  "8:Dbg", "9:Pix",
-    "4:Docs",  "5:Dev", "6:Web",
-    "1:Term",  "2:Hub", "3:Mail",
-    "0:VM",    "Extr1", "Extr2"
+    "7:Mail", "2:Dev", "3:Web-dev", "4:Term", "5:Docs", "6:Chat",
+    "1:Web"
   ]
 
-startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch?
+startupWorkspace = "1:Dev"  -- which workspace do you want to be on after launch?
 
 {-
   Layout configuration. In this section we identify which xmonad
@@ -161,7 +159,7 @@ gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 -- layouts.
 myLayouts =
   onWorkspace "7:Chat" chatLayout
-  $ onWorkspace "9:Pix" gimpLayout
+  -- $ onWorkspace "9:Pix" gimpLayout
   $ defaultLayouts
 
 
@@ -252,8 +250,12 @@ myManagementHooks = [
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
   , className =? "Gnome-calculator" --> doFloat
-  , (className =? "Slack") --> doF (W.shift "7:Chat")
-  , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
+  , (className =? "Slack") --> doF (W.shift "6:Chat")
+  , (className =? "Firefox") --> doF (W.shift "1:Web")
+  , (className =? "Intellij") --> doF (W.shift "2:Dev")
+  , (className =? "Google-chrome") --> doF (W.shift "3:Web-dev")
+  , (className =? "Chromium") --> doF (W.shift "3:Web-dev")
+  -- , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
   ]
 
 
