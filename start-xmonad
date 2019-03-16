@@ -105,8 +105,8 @@ stalonetray \
   --max-geometry 5x1-0+0 \
   --background '#000000' \
   --skip-taskbar \
-  --icon-size 24 \
-  --slot-size $STALONETRAY_SLOT_SIZE \
+  --icon-size 36 \
+  --slot-size 50 \
   --kludges force_icons_size \
   --window-strut none \
 &
