@@ -83,8 +83,13 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:Mail", "2:Dev", "3:Web-dev", "4:Term", "5:Docs", "6:Chat",
-    "1:Web"
+    "7:Mail",
+    "2:Web-dev",
+    "3:Web",
+    "4:Term",
+    "5:Docs",
+    "6:Chat",
+    "1:Dev"
   ]
 
 startupWorkspace = "1:Dev"  -- which workspace do you want to be on after launch?
@@ -198,6 +203,7 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    , ((myModMask, xK_Return), windows W.shiftMaster)
   ]
 
 
@@ -251,10 +257,12 @@ myManagementHooks = [
   , className =? "rdesktop" --> doFloat
   , className =? "Gnome-calculator" --> doFloat
   , (className =? "Slack") --> doF (W.shift "6:Chat")
+  , (className =? "Signal") --> doF (W.shift "6:Chat")
   , (className =? "Firefox") --> doF (W.shift "1:Web")
-  , (className =? "jetbrains-idea-ce") --> doF (W.shift "2:Dev")
-  , (className =? "Google-chrome") --> doF (W.shift "3:Web-dev")
-  , (className =? "Chromium") --> doF (W.shift "3:Web-dev")
+  , (className =? "Spotify") --> doF (W.shift "7:Mail")
+  , (className =? "jetbrains-idea-ce") --> doF (W.shift "3:Dev")
+  , (className =? "Google-chrome") --> doF (W.shift "4:Web-dev")
+  , (className =? "Chromium") --> doF (W.shift "4:Web-dev")
   -- , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
   ]
 
