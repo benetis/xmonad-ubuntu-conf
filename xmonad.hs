@@ -83,13 +83,14 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:Mail",
+    "1:Dev",
     "2:Web-dev",
     "3:Web",
     "4:Term",
-    "5:Docs",
+    "5:Other",
     "6:Chat",
-    "1:Dev"
+    "7:Mail",
+    "8:Notes"
   ]
 
 startupWorkspace = "1:Dev"  -- which workspace do you want to be on after launch?
@@ -255,6 +256,7 @@ myManagementHooks = [
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
   , className =? "Gnome-calculator" --> doFloat
+  , className =? "Peek" --> doFloat
   , (className =? "Slack") --> doF (W.shift "6:Chat")
   , (className =? "Signal") --> doF (W.shift "6:Chat")
   , (className =? "Firefox") --> doF (W.shift "1:Web")
@@ -262,6 +264,8 @@ myManagementHooks = [
   , (className =? "jetbrains-idea-ce") --> doF (W.shift "3:Dev")
   , (className =? "Google-chrome") --> doF (W.shift "4:Web-dev")
   , (className =? "Chromium") --> doF (W.shift "4:Web-dev")
+  , (className =? "Notes") --> doF (W.shift "8:Notes")
+  , (className =? "private_x.kdbx - KeePassXC" --> doF (W.shift "8:Notes"))
   -- , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
   ]
 
@@ -291,10 +295,9 @@ numPadKeys =
 
 numKeys =
   [
-    xK_7, xK_8, xK_9
+    xK_1, xK_2, xK_3
     , xK_4, xK_5, xK_6
-    , xK_1, xK_2, xK_3
-    , xK_0, xK_minus, xK_equal
+    , xK_7, xK_8, xK_9
   ]
 
 -- Here, some magic occurs that I once grokked but has since
